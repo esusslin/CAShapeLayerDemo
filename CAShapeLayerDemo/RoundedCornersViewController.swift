@@ -10,26 +10,31 @@ import UIKit
 
 class RoundedCornersViewController: TapToCloseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
 
-        // Do any additional setup after loading the view.
+        let bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        let center = view.center
+
+        // Create CAShapeLayerS
+        let rectShape1 = CAShapeLayer()
+        rectShape1.backgroundColor = UIColor.redColor().CGColor
+        rectShape1.bounds = bounds
+        rectShape1.position = CGPoint(x: center.x, y: center.y - 120)
+        view.layer.addSublayer(rectShape1)
+        let rectShape2 = CAShapeLayer()
+        rectShape2.backgroundColor = UIColor.greenColor().CGColor
+        rectShape2.bounds = bounds
+        rectShape2.position = center
+        view.layer.addSublayer(rectShape2)
+        let rectShape3 = CAShapeLayer()
+        rectShape3.backgroundColor = UIColor.blueColor().CGColor
+        rectShape3.bounds = bounds
+        rectShape3.position = CGPoint(x: center.x, y: center.y + 120)
+        view.layer.addSublayer(rectShape3)
+
+        // Apply effects here
+
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

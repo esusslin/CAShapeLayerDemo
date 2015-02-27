@@ -10,26 +10,21 @@ import UIKit
 
 class LineWidthViewController: TapToCloseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
 
-        // Do any additional setup after loading the view.
+        let bounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+
+        // Create CAShapeLayerS
+        let rectShape = CAShapeLayer()
+        rectShape.backgroundColor = UIColor.redColor().CGColor
+        rectShape.bounds = bounds
+        rectShape.position = view.center
+        rectShape.cornerRadius = bounds.width / 2
+        view.layer.addSublayer(rectShape)
+
+        // Apply effects here
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
