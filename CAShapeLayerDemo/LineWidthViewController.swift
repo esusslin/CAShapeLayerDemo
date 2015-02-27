@@ -23,7 +23,26 @@ class LineWidthViewController: TapToCloseViewController {
         view.layer.addSublayer(rectShape)
 
         // Apply effects here
-        
+
+        // setup
+        let rect = CGRect(x: 0, y: 0, width: view.bounds.width, height: 1)
+        rectShape.bounds = rect
+        rectShape.position = view.center
+        rectShape.path = UIBezierPath(rect:rect).CGPath
+
+        // 1
+        rectShape.lineWidth = 10
+        rectShape.strokeColor = UIColor.blueColor().CGColor
+
+        // animate
+        let animation = CABasicAnimation(keyPath: "lineWidth")
+        // 2
+        animation.toValue = 1000
+        animation.duration = 1 // duration is 1 sec
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut) // animation curve is Ease Out
+        animation.fillMode = kCAFillModeBoth // keep to value after finishing
+        animation.removedOnCompletion = false // don't remove after finishing
+        rectShape.addAnimation(animation, forKey: animation.keyPath)
     }
 
 }
