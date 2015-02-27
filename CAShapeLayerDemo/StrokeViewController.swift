@@ -23,7 +23,30 @@ class StrokeViewController: TapToCloseViewController {
         view.layer.addSublayer(rectShape)
 
         // Apply effects here
-        
+        // 1
+        rectShape.path = UIBezierPath(ovalInRect: rectShape.bounds).CGPath
+
+        rectShape.lineWidth = 4.0
+        rectShape.strokeColor = UIColor.lightGrayColor().CGColor
+        rectShape.fillColor = UIColor.clearColor().CGColor
+
+        // 2
+        rectShape.strokeStart = 0
+        rectShape.strokeEnd = 0.5
+
+        // 3
+        let start = CABasicAnimation(keyPath: "strokeStart")
+        start.toValue = 0.7
+        let end = CABasicAnimation(keyPath: "strokeEnd")
+        end.toValue = 1
+
+        // 4
+        let group = CAAnimationGroup()
+        group.animations = [start, end]
+        group.duration = 1.5
+        group.autoreverses = true
+        group.repeatCount = HUGE // repeat forver
+        rectShape.addAnimation(group, forKey: nil)
     }
 
 }
