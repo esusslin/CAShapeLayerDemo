@@ -18,7 +18,6 @@ class RoundedCornersViewController: TapToCloseViewController {
 
         // Create CAShapeLayerS
         let rectShape1 = CAShapeLayer()
-        rectShape1.backgroundColor = UIColor.redColor().CGColor
         rectShape1.bounds = bounds
         rectShape1.position = CGPoint(x: center.x, y: center.y - 120)
         view.layer.addSublayer(rectShape1)
@@ -32,7 +31,6 @@ class RoundedCornersViewController: TapToCloseViewController {
         view.layer.addSublayer(rectShape3)
 
         // Apply effects here
-        
     }
 
 }
