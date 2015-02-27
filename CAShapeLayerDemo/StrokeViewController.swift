@@ -17,7 +17,6 @@ class StrokeViewController: TapToCloseViewController {
 
         // Create CAShapeLayerS
         let rectShape = CAShapeLayer()
-        rectShape.backgroundColor = UIColor.redColor().CGColor
         rectShape.bounds = bounds
         rectShape.position = view.center
         rectShape.cornerRadius = bounds.width / 2
