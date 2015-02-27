@@ -31,6 +31,15 @@ class RoundedCornersViewController: TapToCloseViewController {
         view.layer.addSublayer(rectShape3)
 
         // Apply effects here
+        // 1
+        rectShape1.backgroundColor = UIColor.redColor().CGColor
+        rectShape1.cornerRadius = 20
+        // 2
+        rectShape2.fillColor = UIColor.greenColor().CGColor
+        rectShape2.path = UIBezierPath(roundedRect: rectShape2.bounds, cornerRadius: 20).CGPath
+        // 3
+        rectShape3.fillColor = UIColor.blueColor().CGColor
+        rectShape3.path = UIBezierPath(roundedRect: rectShape3.bounds, byRoundingCorners: .BottomLeft | .TopRight, cornerRadii: CGSize(width: 20, height: 20)).CGPath
     }
 
 }
